@@ -225,19 +225,59 @@
 
 {{- if (eq site.Params.snowflakes true) }}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const snowContainer = document.createElement("div");
-    snowContainer.id = "snow";
-    document.body.appendChild(snowContainer);
+document.addEventListener('DOMContentLoaded', function() {
+    const christmasToggle = document.getElementById('christmas-toggle');
+    const body = document.body;
 
-    for (let i = 0; i < 200; i++) { // Numero di fiocchi
-        const flake = document.createElement("div");
-        flake.className = "snowflake";
-        flake.style.setProperty('--i', Math.random()); // Randomizza la dimensione
-        flake.style.setProperty('--x', Math.random()); // Randomizza la posizione orizzontale
-        snowContainer.appendChild(flake);
+    function createSnow() {
+        const snowContainer = document.createElement("div");
+        snowContainer.id = "snow";
+        document.body.appendChild(snowContainer);
+
+        for (let i = 0; i < 200; i++) { // Numero di fiocchi
+            const flake = document.createElement("div");
+            flake.className = "snowflake";
+            flake.style.setProperty('--i', Math.random());
+            flake.style.setProperty('--x', Math.random());
+            snowContainer.appendChild(flake);
+        }
+
+        // Forzare il reflow per garantire l'applicazione dell'animazione
+        snowContainer.offsetHeight; // Trigger reflow
+        snowContainer.classList.add('fade-in');
     }
+
+    function removeSnow() {
+        const snowContainer = document.getElementById("snow");
+        if (snowContainer) {
+            snowContainer.classList.add('fade-out');
+            // Attendere il completamento della transizione prima di rimuovere l'elemento
+            setTimeout(() => {
+                snowContainer.remove();
+            }, 1000); // La durata corrisponde alla transizione CSS
+        }
+    }
+
+    // Verificare la preferenza salvata
+    if (localStorage.getItem('christmas-mode') === 'true') {
+        body.classList.add('christmas-mode');
+        createSnow();
+    }
+
+    // Gestire il toggle della modalità natalizia al click del pulsante
+    christmasToggle.addEventListener('click', function() {
+        body.classList.toggle('christmas-mode');
+        const isChristmasMode = body.classList.contains('christmas-mode');
+        localStorage.setItem('christmas-mode', isChristmasMode);
+
+        if (isChristmasMode) {
+            createSnow();
+        } else {
+            removeSnow();
+        }
+    });
 });
+
 </script>
 {{- end }}
 

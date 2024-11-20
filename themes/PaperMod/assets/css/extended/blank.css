@@ -176,50 +176,103 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1000; 
+    z-index: 1000;
     overflow: hidden;
 }
 
 .snowflake {
     position: absolute;
     top: -10px;
-    left: 50%; /* Punto di partenza iniziale */
-    transform: translateX(calc(-50vw + 100vw * var(--x))); /* Randomizza la posizione orizzontale */
-    width: calc(5px + 10 * var(--i)); /* Dimensioni casuali tra 5px e 15px */
+    left: 50%;
+    transform: translateX(calc(-50vw + 100vw * var(--x)));
+    width: calc(5px + 10 * var(--i));
     height: calc(5px + 10 * var(--i));
-    background: var(--snow-color, white); /* Variabile per il colore */
-    border-radius: 50%; /* Fiocco arrotondato */
-    opacity: 0.8; /* Trasparenza leggera */
+    background: var(--snow-color, white);
+    border-radius: 50%;
+    opacity: 0;
     animation: fall linear infinite;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Aggiunge un'ombra per visibilità */
-    border: 1px solid rgba(0, 0, 0, 0.5); /* Contorno leggero per visibilità */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-/* Tema scuro: colore più chiaro per i fiocchi */
 body.dark .snowflake {
-    --snow-color: #e0e0e0; /* Colore grigio chiaro visibile su sfondi scuri */
+    --snow-color: #e0e0e0;
 }
 
-/* Tema chiaro: bianco brillante */
 body:not(.dark) .snowflake {
-    --snow-color: #ffffff; /* Bianco per il tema chiaro */
+    --snow-color: #ffffff;
 }
 
-/* Effetto di caduta */
 @keyframes fall {
     0% {
-        transform: translate(calc(-50vw + 100vw * var(--x)), -10px); /* Partenza */
+        transform: translate(calc(-50vw + 100vw * var(--x)), -10px);
         opacity: 0.9;
     }
     50% {
-        transform: translate(calc(-50vw + 100vw * var(--x) + 30px), 50vh); /* Movimento laterale */
+        transform: translate(calc(-50vw + 100vw * var(--x) + 30px), 50vh);
         opacity: 0.6;
     }
     100% {
-        transform: translate(calc(-50vw + 100vw * var(--x) + 50px), 110vh); /* Fine caduta */
+        transform: translate(calc(-50vw + 100vw * var(--x) + 50px), 110vh);
         opacity: 0.2;
     }
 }
+
+/* Classe per la dissolvenza in entrata */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Classe per la dissolvenza in uscita */
+.fade-out {
+    opacity: 0.8; /* Opacità iniziale corrispondente all'opacità finale dei fiocchi */
+    animation: fadeOut 2s forwards;
+}
+
+/* Animazione per la dissolvenza in entrata */
+@keyframes fadeIn {
+    to {
+        opacity: 0.8; /* Opacità finale desiderata */
+    }
+}
+
+/* Animazione per la dissolvenza in uscita */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+#christmas-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+
+#tree-off,
+#tree-on {
+    margin-top: 24px; 
+}
+
+#tree-on {
+    display: none;
+}
+
+body.christmas-mode #tree-off {
+    display: none;
+}
+
+body.christmas-mode #tree-on {
+    display: inline;
+}
+
 
 /* Variabili per randomizzare i fiocchi */
 .snowflake:nth-child(odd) {
