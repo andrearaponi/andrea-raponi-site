@@ -284,3 +284,110 @@ body:not(.dark) .snowflake {
     border-bottom: 1px solid var(--andylab);
 }
 
+#main-content,
+#nav,
+#footer {
+    transition: filter 0.3s ease;
+}
+
+.blurred {
+    filter: blur(5px);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: none;
+}
+
+/* Overlay covering the entire page */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    display: none; /* Hidden by default */
+}
+
+/* privacy banner styling */
+#privacy-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    font-size: 16px;
+    border: 1px solid var(--secondary);
+    max-width: calc(var(--main-width) + var(--gap) * 4);
+    background-color: var(--theme);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    display: none; /* Hidden by default */
+}
+
+/* Content within the privacy banner */
+.privacy-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap);
+}
+
+/* Button within the privacy banner */
+.privacy-content button {
+    color: var(--secondary);
+    font-size: 13px;
+    line-height: 36px;
+    background: var(--theme);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 0 16px;
+    flex-shrink: 0;
+}
+
+.privacy-content button:hover {
+    border: 1px solid var(--andylab);
+}
+
+.privacy-content button:hover span {
+    color: var(--andylab);
+}
+
+/* Link within the privacy banner */
+.privacy-content a {
+    color: var(--andylab);
+    box-shadow: 0 1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+
+
+/* Blurred effect for main content, navigation, and footer */
+.blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+    .privacy-content button {
+        width: 100%;
+    }
+    .privacy-content {
+        flex-direction: column;
+    }
+    #privacy-banner {
+        width: 90vw; /* 90% of the viewport width */
+        max-width: 600px; /* Optional maximum width */
+    }
+    
+}

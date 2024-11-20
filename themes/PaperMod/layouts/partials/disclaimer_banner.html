@@ -1,0 +1,49 @@
+<div id="overlay"></div>
+<div id="privacy-banner">
+    <div class="privacy-content">
+        <span>This site uses cookies to improve your experience. By continuing to navigate, you accept this. More details in my <a href="/privacy">Privacy Policy</a>.</span>
+        <button type="button" id="privacy-btn">
+            <span>I understand</span>
+        </button>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const privacyBanner = document.getElementById('privacy-banner');
+        const privacyButton = document.getElementById('privacy-btn');
+        const overlay = document.getElementById('overlay');
+        const elementsToBlur = document.querySelectorAll('#main-content, nav, footer');
+
+        // Check if the privacy has been acknowledged
+        const privacyAcknowledged = localStorage.getItem('privacy-confirm') === 'true';
+
+        if (!privacyAcknowledged) {
+            // Show the banner and overlay, apply blur effect
+            privacyBanner.style.display = 'block';
+            overlay.style.display = 'block';
+            elementsToBlur.forEach(element => element.classList.add('blurred'));
+        }
+
+        privacyButton.addEventListener('click', function() {
+            // Save acknowledgment in localStorage
+            localStorage.setItem('privacy-confirm', 'true');
+
+            // Hide the banner and overlay, remove blur effect
+            privacyBanner.style.display = 'none';
+            overlay.style.display = 'none';
+            elementsToBlur.forEach(element => element.classList.remove('blurred'));
+        });
+
+        // Prevent clicks on the overlay from interacting with underlying content
+        overlay.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+</script>
+
+
+
+
+
