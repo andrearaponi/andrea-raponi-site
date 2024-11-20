@@ -94,6 +94,7 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
+                {{- if (eq site.Params.christmasTime true) }}
                 <button id="christmas-toggle" accesskey="c" title="(Alt + C)">
                     <!-- Tree Off Icon -->
                     <svg id="tree-off" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -109,6 +110,7 @@
                         <circle cx="15" cy="14" r="1"></circle>
                     </svg>
                 </button>
+                {{- end }}
                               
                
                 {{- end }}

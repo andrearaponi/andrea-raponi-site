@@ -223,9 +223,11 @@
 </script>
 {{- end }}
 
-{{- if (eq site.Params.snowflakes true) }}
+{{- if (eq site.Params.christmasTime true) }}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    const srcSanta = '/audio/christmas.mp3';
+    const santaPlayer = new Audio(srcSanta);
     const christmasToggle = document.getElementById('christmas-toggle');
     const body = document.body;
 
@@ -271,8 +273,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('christmas-mode', isChristmasMode);
 
         if (isChristmasMode) {
+            santaPlayer.play();
             createSnow();
         } else {
+            santaPlayer.pause();
+            santaPlayer.currentTime = 0;
             removeSnow();
         }
     });

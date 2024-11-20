@@ -22,7 +22,7 @@ minify:
   preserveWhitespace: false # Mantiene gli spazi vuoti nell'HTML
   minifyHTMLOutput: true # Minifica l'output HTML
 params:
-  snowflakes: true
+  christmasTime: true
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"
