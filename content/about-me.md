@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-layout: "about"
+layout: "page"
 url: "/about-me/"
 summary: "☕ Software Craftsman 🧙‍♂️ Linux Wizard 📝 Occasional writer"
 ShowReadingTime: false

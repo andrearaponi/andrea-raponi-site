@@ -6,7 +6,6 @@
     --header-height: 60px;
     --footer-height: 60px;
     --radius: 8px;
-    --theme: rgb(255, 255, 255);
     --entry: rgb(255, 255, 255);
     --primary: rgb(30, 30, 30);
     --secondary: rgb(108, 108, 108);
@@ -14,7 +13,8 @@
     --content: rgb(31, 31, 31);
     --code-block-bg: rgb(28, 29, 33);
     --code-bg: rgb(245, 245, 245);
-    --border: rgb(238, 238, 238);
+    --theme: rgb(245, 245, 245);
+    --border: rgb(108, 108, 108);
     --andylab: #f4e009;
 }
 
