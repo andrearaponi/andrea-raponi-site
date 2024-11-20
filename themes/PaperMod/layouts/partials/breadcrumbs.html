@@ -1,0 +1,34 @@
+{{- if (.Param "ShowBreadCrumbs") -}}
+<div class="breadcrumbs">
+    {{- $url := replace .Parent.Permalink (printf "%s" site.Home.Permalink) "" }}
+    {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
+
+    <a href="{{ "" | absLangURL }}" onclick="playSound(event)">{{ i18n "home" | default "Home" }}</a>
+    {{- $scratch := newScratch }}
+    {{- range $index, $element := split $lang_url "/" }}
+
+    {{- $scratch.Add "path" (printf "%s/" $element )}}
+    {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+
+    {{- if (and ($bc_pg) (gt (len . ) 0))}}
+    {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $bc_pg.Permalink }}" onclick="playSound(event)">{{ $bc_pg.Name }}</a>
+    {{- end }}
+
+    {{- end -}}
+</div>
+
+<script>
+    const audio = new Audio('/audio/bth2.mp3');
+    function playSound(event) {
+        event.preventDefault(); 
+        audio.onended = () => {
+            window.location.href = event.target.href;
+        };
+        audio.play().catch(error => {
+            console.error('Errore nella riproduzione dell\'audio:', error);
+            window.location.href = event.target.href;
+        });
+    }
+</script>
+
+{{- end -}}

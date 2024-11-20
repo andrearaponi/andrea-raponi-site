@@ -1,0 +1,27 @@
+{{- define "main" }}
+<div class="not-found-container">
+    {{ partial "breadcrumbs.html" . }}
+    
+    <div class="not-found">
+                <h1>404</h1>
+        <img id="random-gif" src="" alt="Funny 404 GIF">
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Lista delle GIF
+        const gifs = [
+            "/imgs/404_1.gif",
+            "/imgs/404_2.gif"
+        ];
+
+        // Scegli una GIF casualmente
+        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+        // Imposta la GIF nell'immagine
+        const gifElement = document.getElementById("random-gif");
+        gifElement.src = randomGif;
+    });
+</script>
+{{- end }}{{/* end main */ -}}

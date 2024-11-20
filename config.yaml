@@ -1,0 +1,106 @@
+baseURL: https://andrearaponi.it
+languageCode: en-us
+title: Andrea Raponi
+copyright: "©2024 [Andrea Raponi](/about-me)"
+theme: ["PaperMod"]
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+mainsections: ["open-source","stories","soft-skills"]
+permalinks:
+  open-source: "/open-source/:slug/"
+minify:
+  disableXML: false # Minifica anche i file XML (es. sitemap)
+  minifyOutput: true # Minifica l'output del sito
+  preserveLineBreaks: false # Mantiene i line-break (utile per debug)
+  preserveComments: false # Mantiene i commenti nell'HTML
+  preserveWhitespace: false # Mantiene gli spazi vuoti nell'HTML
+  minifyHTMLOutput: true # Minifica l'output HTML
+params:
+  snowflakes: false
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/safari-pinned-tab.svg"
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "☕ Software Craftsman 🧙‍♂️ Linux Wizard 📝 Occasional write"
+  author: Andrea Raponi
+  defaultTheme: dark
+  disableThemeToggle: false
+  ShowShareButtons: true
+  ShowReadingTime: true
+  # disableSpecial1stPost: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+ 
+  homeInfoParams:
+    imageUrl: "/imgs/andrearaponi.webp"
+    imageWidth: 150
+    imageHeight: 150
+    imageTitle: "Foto di Andrea Raponi"
+    Title: "Andrea Raponi"
+    Content: '
+    <span class="skill">☕ Software Craftsman</span> 
+    <span class="skill">🧙‍♂️ Linux Wizard</span> 
+    <span class="skill">📝 Occasional writer</span>
+    '
+    AlignSocialIconsTo: "center"
+    #Title: Hi there wave
+
+  socialIcons: # optional
+    - name: "GitHub"
+      url: "https://github.com/andrearaponi"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/andrearaponi/"
+    - name: "Email"
+      url: "mailto:andrearaponi@outlook.com"
+    - name: "Telegram"
+      url: "https://t.me/andrearaponi12"
+    - name: "Rss"
+      url: "/index.xml"
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.0
+    minMatchCharLength: 0
+    limit: 10 
+    keys: ["title", "permalink", "summary", "content"]
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: About
+          url: about-me/
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 6
+        - name: Archive
+          url: archives
+          weight: 7
