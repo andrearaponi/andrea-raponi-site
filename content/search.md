@@ -1,5 +1,5 @@
 ---
 title: "Search"
-placeholder: Seek not in haste, traveler, for the answer may surprise even the wisest of wizards!
+placeholder: "Not all those who wander are lost"
 layout: "search"
 ---
