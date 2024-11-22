@@ -34,7 +34,6 @@ params:
   author: Andrea Raponi
   defaultTheme: dark
   disableThemeToggle: false
-  disableGenerator: true
   ShowShareButtons: true
   ShowReadingTime: true
   # disableSpecial1stPost: true
