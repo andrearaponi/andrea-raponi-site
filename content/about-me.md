@@ -8,6 +8,7 @@ disableShare: true
 hideAuthor: true
 ---
 
+**![Cover About Me](/imgs/cover_about_me.jpg#center)**
 
 Raised on **bread and Thoreau**, I went to the woods because I wished to live deliberately, to confront only the essential facts of life, and discovered that **no matter how many frameworks you know, algorithms and data structures will always come first.**
 
