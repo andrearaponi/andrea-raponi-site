@@ -1,3 +1,4 @@
+{{- if (eq site.Params.privacyPolicy true) }}
 <div id="overlay"></div>
 <div id="privacy-banner">
     <div class="privacy-content">
@@ -42,6 +43,7 @@
         });
     });
 </script>
+{{- end }}
 
 
 

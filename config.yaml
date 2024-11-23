@@ -22,6 +22,7 @@ minify:
   preserveWhitespace: false # Mantiene gli spazi vuoti nell'HTML
   minifyHTMLOutput: true # Minifica l'output HTML
 params:
+  privacyPolicy: false
   christmasTime: true
   assets:
     favicon: "/favicon.ico"
