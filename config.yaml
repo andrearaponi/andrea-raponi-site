@@ -23,7 +23,7 @@ minify:
   minifyHTMLOutput: true # Minifica l'output HTML
 params:
   privacyPolicy: false
-  christmasTime: true
+  christmasTime: false
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"
